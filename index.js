@@ -39,9 +39,9 @@ const list = [
 const wrap = document.querySelector('.content__wrapper')
 
 list.forEach(function (item, i, list) {
-    console.log(item)
     contentItem = document.createElement('div')
         contentItem.className = "content__item"
+        contentItem.dataset.id = item.id
             contentItem.innerHTML =
                 `<h3>${item.title}</h3>
                 <img src=${item.img} alt="" class="pic">
@@ -54,6 +54,12 @@ list.forEach(function (item, i, list) {
     wrap.append(contentItem)
 
 
+})
+
+document.addEventListener('click', event=> {
+    $.openModal(event)
+    $.destroyModal(event)
+    
 })
 
 
